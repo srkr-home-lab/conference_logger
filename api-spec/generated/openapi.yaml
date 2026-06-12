@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: (title)
+  version: 0.0.0
+tags: []
+paths:
+  /postLog:
+    post:
+      operationId: createPostLog
+      parameters: []
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostLog'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostLog'
+components:
+  schemas:
+    PostLog:
+      type: object
+      required:
+        - sessionId
+        - tagName
+      properties:
+        sessionId:
+          type: string
+        tagName:
+          type: array
+          items:
+            type: string
