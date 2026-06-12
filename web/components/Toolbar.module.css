@@ -200,13 +200,14 @@
 }
 
 .danger {
-  color: var(--danger);
+  color: var(--fg-muted);
   font-weight: 600;
 }
 
 .danger:hover {
   background: color-mix(in srgb, var(--danger) 12%, transparent);
   border-color: var(--danger);
+  color: var(--danger);
 }
 
 @media (max-width: 600px) {

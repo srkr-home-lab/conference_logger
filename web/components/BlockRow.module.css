@@ -173,6 +173,12 @@
   transition: filter 0.12s;
 }
 
+.tweetIcon {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+}
+
 .tweetBtn:hover {
   filter: brightness(1.06);
 }

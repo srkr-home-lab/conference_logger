@@ -98,7 +98,8 @@
 }
 
 .clearBtn {
-  color: var(--danger);
+  color: var(--fg-muted);
+  font-weight: 600;
 }
 
 @media (max-width: 600px) {
