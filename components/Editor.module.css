@@ -1,0 +1,205 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--app-bg);
+}
+
+.sheet {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px 120px;
+  flex: 1;
+}
+
+.title {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--border-strong);
+  outline: none;
+  background: transparent;
+  color: var(--fg);
+  font-family: inherit;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.25;
+  padding: 0 4px 8px;
+  margin-bottom: 16px;
+  resize: none;
+  overflow: hidden;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  transition: border-color 0.12s;
+}
+
+.title:hover {
+  border-bottom-color: var(--fg-muted);
+}
+
+.title:focus {
+  border-bottom-color: var(--accent);
+}
+
+.title::placeholder {
+  color: var(--fg-muted);
+  opacity: 0.55;
+}
+
+.blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.addBlock {
+  margin-top: 28px;
+  width: 100%;
+  padding: 12px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--fg-muted);
+  font-size: 14px;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.addBlock:hover {
+  background: var(--bg-subtle);
+  color: var(--fg);
+  border-color: var(--accent);
+}
+
+/* スマホ用の下部アクション（PC では非表示・ヘッダーに表示） */
+.bottomActions {
+  display: none;
+}
+
+.copyAllBtn,
+.clearBtn {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  white-space: nowrap;
+}
+
+.copyAllBtn {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.clearBtn {
+  color: var(--danger);
+}
+
+@media (max-width: 600px) {
+  .bottomActions {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.hint {
+  margin-top: 32px;
+  font-size: 12.5px;
+  color: var(--fg-muted);
+}
+
+.hint kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid var(--border-strong);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: var(--bg-subtle);
+  font-size: 11px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.hint code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--bg-subtle);
+  font-size: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.coffee {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  padding: 11px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--box-bg);
+  color: var(--fg);
+  font-size: 13px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px var(--shadow);
+  transition: border-color 0.12s, box-shadow 0.12s;
+}
+
+.coffee:hover {
+  border-color: var(--accent);
+  box-shadow: 0 6px 18px var(--shadow);
+}
+
+.coffeeIcon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* 通常は隠しておき、ホバーで展開 */
+.coffeeText {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.2s ease, opacity 0.2s ease, margin-left 0.2s ease;
+}
+
+.coffee:hover .coffeeText {
+  max-width: 160px;
+  opacity: 1;
+  margin-left: 7px;
+}
+
+.toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--fg);
+  color: var(--bg);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  box-shadow: 0 6px 20px var(--shadow);
+  z-index: 50;
+  animation: rise 0.18s ease-out;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
