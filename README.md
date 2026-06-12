@@ -42,13 +42,20 @@
 - 状態の永続化は localStorage のみ（バックエンドなし）
 - Markdown レンダラは依存ライブラリなしの自前実装（`lib/render.ts`）
 
+## ディレクトリ
+
+- `web/` … フロントエンド（Next.js）。これ単体で動作する
+- `api/` … Go 製 API サーバー（予定・未実装）
+
 ## セットアップ
 
-Node.js は [mise](https://mise.jdx.dev/) で管理しています。
+Node.js は [mise](https://mise.jdx.dev/) で管理しています。フロントエンドは `web/` 配下で操作します。
 
 ```bash
 # Node.js をインストール（mise.toml に従う）
 mise install
+
+cd web
 
 # 依存パッケージ
 mise exec -- npm install
