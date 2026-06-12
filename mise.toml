@@ -1,2 +1,31 @@
 [tools]
+atlas = "1.2"
 node = "lts"
+sqlc = "1.31.1"
+
+
+[tasks."db:diff"]
+description = "Generate Atlas migration"
+usage = '''
+arg "<name>" help="Migration name"
+'''
+run = '''
+cd db
+atlas migrate diff "$usage_name" --env local
+'''
+
+[tasks."db:migrate"]
+description = "Migrate to actual database"
+run = '''
+cd db
+atlas migrate apply --env local
+'''
+
+[tasks."api:generate"]
+description = "Generate api router"
+run = '''
+cd api-spec
+npm run compile
+cd ../api
+go tool oapi-codegen --config oapi-codegen.yaml ../api-spec/generated/openapi.yaml
+'''
